@@ -3,10 +3,10 @@ class Solution:
         if not nums:
             return 0
         
-        right = 1
+        left = 1
 
-        for left in range(1, len(nums)):
-            if nums[left] != nums[left-1]:
-                nums[right] = nums[left]
-                right += 1
-        return right
+        for right in range(1, len(nums)):
+            if nums[right] != nums[right-1]:
+                nums[left] = nums[right]
+                left += 1
+        return left
