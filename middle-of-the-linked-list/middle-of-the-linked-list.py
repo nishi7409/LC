@@ -6,6 +6,7 @@
 import math
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
         # brute force
         temp = list()
         curr = head
@@ -22,3 +23,10 @@ class Solution:
             for x in range(middle_length):
                 new_curr = new_curr.next
         return new_curr
+        """
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
