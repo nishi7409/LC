@@ -6,6 +6,8 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
+        """
+        # brute force
         previously_hit = list()
 
         while head:
@@ -14,3 +16,20 @@ class Solution:
             previously_hit.append(head)
             head = head.next
         return False
+        """
+        previous = head
+        current = previous.next
+        first_run = False
+
+        while current:
+            if previous.next == current and not first_run:
+                current = current.next
+                first_run = True
+                continue
+            if previous.next == current and first_run:
+                return True
+            current = current.next
+        return False
+
+
+
