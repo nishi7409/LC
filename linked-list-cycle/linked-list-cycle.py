@@ -17,6 +17,12 @@ class Solution:
             head = head.next
         return False
         """
+
+        """
+        # this will only work if pos is the first index
+        if not head:
+            return False
+
         previous = head
         current = previous.next
         first_run = False
@@ -30,6 +36,18 @@ class Solution:
                 return True
             current = current.next
         return False
+        """
+        slow = head
+        fast = head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+            if slow == fast:
+                return True
+        return False
+
 
 
 
