@@ -37,13 +37,14 @@ class Solution:
             current = current.next
         return False
         """
+        slow = head
         fast = head
 
         while fast and fast.next:
-            head = head.next
+            slow = slow.next
             fast = fast.next.next
             
-            if head == fast:
+            if slow == fast:
                 return True
         return False
 
